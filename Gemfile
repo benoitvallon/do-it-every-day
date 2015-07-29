@@ -25,6 +25,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt'
 
 gem 'devise', '~> 3.5.1'
+gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

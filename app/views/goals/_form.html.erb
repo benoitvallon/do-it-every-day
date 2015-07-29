@@ -23,6 +23,16 @@
     <%= f.label :start_date %><br>
     <%= f.datetime_select :start_date, class: "form-control" %>
   </div>
+
+  <div class="form-group">
+      <div class='input-group date' id='datetimepicker1'>
+          <input type='text' class="form-control" />
+          <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+      </div>
+  </div>
+
   <div class="form-group">
     <%= f.submit "Update goal", class: "btn btn-primary"%>
   </div>
