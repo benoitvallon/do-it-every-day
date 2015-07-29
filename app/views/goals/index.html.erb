@@ -6,9 +6,12 @@
       <div><h2><%= goal.title %></h2></div>
       <div><%= goal.description %></div>
       <div><%= goal.start_date %></div>
-      <div><%= link_to 'Show', goal %></div>
-      <div><%= link_to 'Edit', edit_goal_path(goal) %></div>
-      <div><%= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+      <div>
+        <div class="btn-group">
+          <%= link_to 'Edit', edit_goal_path(goal), class: "btn btn-default" %>
+          <%= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+        </div>
+      </div>
     </li>
   <% end %>
 </ul>
