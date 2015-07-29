@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   resources :goals
   devise_for :users
-  root                'static_pages#home'
-  get    'about'   => 'static_pages#about'
+  root                  'static_pages#home'
+  get 'about'        => 'static_pages#about'
+  get 'activities'   => 'static_pages#activities'
+  get 'today'        => 'static_pages#today'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
