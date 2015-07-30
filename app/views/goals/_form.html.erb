@@ -26,6 +26,21 @@
   </div>
 
   <div class="form-group">
+    <%= f.label "How long do you what to do it?" %><br>
+    <%= f.select :duration, [ ["1 week", 7], ["2 weeks", 14], ["1 month", 31], ["2 months", 62], ["100 days", 100] ], {prompt: "Select a duration"}, { class: "form-control"} %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "At what time will you do it?" %><br>
+    <%= f.time_select :moment_start, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "At what time will you finish it?" %><br>
+    <%= f.time_select :moment_end, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
     <%= f.submit "Update goal", class: "btn btn-primary"%>
   </div>
 <% end %>
