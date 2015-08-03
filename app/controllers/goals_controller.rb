@@ -27,6 +27,14 @@ class GoalsController < ApplicationController
   def create
     @goal = current_user.goals.build(goal_params)
 
+    # iterate throught dates
+    start_date = Date.parse(goal_params[:start_date])
+    end_date = start_date + goal_params[:duration].to_i - 1
+
+    start_date.upto(end_date) do |date|
+      @goal.activities.build({done: false, due_date: date})
+    end
+
     respond_to do |format|
       if @goal.save
         format.html { redirect_to @goal, notice: 'Goal was successfully created.' }
