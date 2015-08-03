@@ -113,16 +113,18 @@ footer {
   @include box_sizing;
 }
 
-.logo-link {
+
+a.logo-link {
   float: left;
   padding: 30px 0 0 0;
+  color: white;
+  text-decoration: none;
 }
 .logo-image {
   width: 60px;
 }
 .logo-text {
   font-size: 32px;
-  color: white !important;
   display: inline-block;
   top: 10px;
   position: relative;
