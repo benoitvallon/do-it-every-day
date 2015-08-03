@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150730204307) do
+ActiveRecord::Schema.define(version: 20150803160317) do
+
+  create_table "activities", force: :cascade do |t|
+    t.date     "due_date"
+    t.boolean  "done"
+    t.float    "progress"
+    t.text     "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "goals", force: :cascade do |t|
     t.string   "title"

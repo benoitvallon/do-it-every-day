@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  due_date: 2015-08-03
+  done: false
+  progress: 1.5
+  note: MyText
+
+two:
+  due_date: 2015-08-03
+  done: false
+  progress: 1.5
+  note: MyText
