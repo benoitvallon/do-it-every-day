@@ -1,19 +1,36 @@
-<h1 class="text-center">My goals list</h1>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
 
-<ul>
-  <% current_user.goals.each do |goal| %>
-    <li class="goal">
-      <div><h2><%= goal.title %></h2></div>
-      <div><%= goal.description %></div>
-      <div><%= goal.start_date %></div>
-      <div>
-        <div class="btn-group">
-          <%= link_to 'Edit', edit_goal_path(goal), class: "btn btn-default" %>
-          <%= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
-        </div>
-      </div>
-    </li>
-  <% end %>
-</ul>
+    <ul class="goal-list">
+      <% current_user.goals.each do |goal| %>
+        <li class="goal-item">
+          <div class="title-zone">
+            <div class="goal-title"><%= goal.title %></div>
+            <div class="goal-duration">For: <%= goal.duration%> days</div>
+          </div>
 
-<%= link_to 'New Goal', new_goal_path %>
+          <div class="goal-description"><%= goal.description %></div>
+          <div class="goal-due-date">
+            Goal started on <%= goal.start_date.to_formatted_s(:long_ordinal) %>
+          </div>
+          <div>
+            <div class="btn-group">
+              <%= link_to 'Edit', edit_goal_path(goal), class: "btn btn-sm btn-default" %>
+              <%= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-default" %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+
+  </div>
+</div>
+<hr>
+<div class="row text-center">
+  <div class="col-md-8 col-md-offset-2">
+
+  <h1>Setup a new goal</h1>
+  <%= link_to 'New Goal', new_goal_path, class: "btn btn-primary" %>
+
+  </div>
+</div>
