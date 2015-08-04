@@ -1,33 +1,66 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-12">
 
-<h1>Listing Activities</h1>
+    <h1 class="text-center">Monthly follow-up</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Due date</th>
-      <th>Done</th>
-      <th>Progress</th>
-      <th>Note</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <div class="table-responsive">
+      <table class="table table-bordered calendar">
+        <thead>
+          <tr class="calendar-row-head">
+            <th class="cell-head">Sunday</th>
+            <th class="cell-head">Monday</th>
+            <th class="cell-head">Tuesday</th>
+            <th class="cell-head">Wednesday</th>
+            <th class="cell-head">Thursday</th>
+            <th class="cell-head">Friday</th>
+            <th class="cell-head">Saturday</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="calendar-row">
+            <% @beginning_of_month = Date.today.beginning_of_month %>
+            <% @end_of_month = Date.today.end_of_month %>
 
-  <tbody>
-    <% @activities.each do |activity| %>
-      <tr>
-        <td><%= activity.due_date %></td>
-        <td><%= activity.done %></td>
-        <td><%= activity.progress %></td>
-        <td><%= activity.note %></td>
-        <td><%= link_to 'Show', activity %></td>
-        <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-        <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+            <% (@beginning_of_month..@end_of_month).each do |d| %>
+              <% if d == @beginning_of_month %>
+                <% d.wday.times do %>
+                  <td class='offset'></td>
+                <% end %>
+              <% end %>
 
-<br>
+              <% if d.wday == 0 %>
+                </tr>
+                <tr class="calendar-row">
+              <% end %>
+              <td class="<%= "today-cell" if d == Date.today %>">
+                <div class="cell-date"><%= d.day %></div>
+                <% if activities = @activities_by_date[d.to_s] %>
+                  <% activities.each do |activity| %>
+                    <div class="cell-date">
+                      <%= activity.goal[:title] %>
+                      <% if activity[:done] %>
+                        <span class="label label-success">Done</span>
+                        <%= link_to '(edit)', edit_activity_path(activity) %>
+                      <% elsif !activity[:done] && activity[:due_date] < Date.today %>
+                        <span class="label label-danger">Not done</span>
+                        <%= link_to '(edit)', edit_activity_path(activity) %>
 
-<%= link_to 'New Activity', new_activity_path %>
+                      <% end %>
+                    </div>
+                  <% end %>
+                <% end %>
+              </td>
+
+              <% if d == @end_of_month %>
+                <% (6 - d.wday).times do %>
+                  <td class='offset'></td>
+                <% end %>
+              <% end %>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>

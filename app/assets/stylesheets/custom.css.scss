@@ -149,3 +149,24 @@ footer {
   font-size: 12px;
   text-align: right;
 }
+
+/* Calendar */
+
+.calendar {
+  table-layout: fixed;
+}
+.calendar-row {
+  height: 100px;
+}
+.calendar-row-head {
+  height: 50px;
+}
+.table-bordered > thead > tr > th.cell-head {
+  vertical-align: middle;
+}
+.offset {
+  background-color: #f9f9f9;
+}
+.today-cell {
+  background-color: rgba(44, 62, 80, 0.2);
+}

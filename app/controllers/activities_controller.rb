@@ -5,6 +5,12 @@ class ActivitiesController < ApplicationController
   # GET /activities.json
   def index
     @activities = Activity.all
+
+    @activities_by_date = {}
+    @activities.each do |activity|
+      @activities_by_date[activity[:due_date].to_s] = @activities_by_date[activity[:due_date].to_s] || []
+      @activities_by_date[activity[:due_date].to_s] << activity
+    end
   end
 
   # GET /activities/1
