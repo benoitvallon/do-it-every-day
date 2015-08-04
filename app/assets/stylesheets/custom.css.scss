@@ -154,6 +154,7 @@ footer {
 
 .calendar {
   table-layout: fixed;
+  margin-top: 20px;
 }
 .calendar-row {
   height: 100px;
@@ -169,4 +170,11 @@ footer {
 }
 .today-cell {
   background-color: rgba(44, 62, 80, 0.2);
+}
+.cell-date {
+  text-align: right;
+  margin-bottom: 5px;
+}
+.cell-activities {
+
 }

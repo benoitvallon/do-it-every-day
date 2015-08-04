@@ -36,7 +36,7 @@
                 <div class="cell-date"><%= d.day %></div>
                 <% if activities = @activities_by_date[d.to_s] %>
                   <% activities.each do |activity| %>
-                    <div class="cell-date">
+                    <div class="cell-activities">
                       <%= activity.goal[:title] %>
                       <% if activity[:done] %>
                         <span class="label label-success">Done</span>
