@@ -11,23 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :due_date %><br>
-    <%= f.date_select :due_date %>
-  </div>
-  <div class="field">
+  <p>Activty of <strong><%= @activity[:due_date].to_formatted_s(:long_ordinal) %></strong> of your goal <strong><%= @activity.goal[:title] %> for <%= @activity.goal[:duration] %> days</strong>.</p>
+
+  <div class="form-group">
     <%= f.label :done %><br>
     <%= f.check_box :done %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :progress %><br>
-    <%= f.text_field :progress %>
+    <%= f.text_field :progress, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :note %><br>
-    <%= f.text_area :note %>
+    <%= f.text_area :note, class: "form-control" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-group">
+    <%= f.submit "Update activity", class: "btn btn-primary" %>
   </div>
 <% end %>
