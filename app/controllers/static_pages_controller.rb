@@ -8,13 +8,17 @@ class StaticPagesController < ApplicationController
   def today
     goals = current_user.goals.all
 
-    @activities = []
+    @activitiesUnsorted = []
     goals.each do |goal|
       # find daily activity
       activity = goal.activities.find_by(due_date: Time.now.strftime("%Y-%m-%d"))
       if activity
-        @activities << activity
+        @activitiesUnsorted << activity
       end
+    end
+
+    @activities = @activitiesUnsorted.sort do |a,b|
+      a.goal[:moment_start] <=> b.goal[:moment_start]
     end
   end
 

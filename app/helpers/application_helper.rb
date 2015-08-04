@@ -19,6 +19,18 @@ module ApplicationHelper
       :notice => 'alert-info'
     }[flash_type.to_sym] || flash_type.to_s
   end
+
+  # Returns the full title on a per-page basis.
+  def date_status(activity = nil)
+    datetime = Time.parse(activity[:due_date].strftime("%Y-%m-%d") + " " + activity.goal[:moment_start].strftime("%H:%M:%S"))
+
+    if activity[:done]
+      return "success"
+    elsif datetime < Time.now
+      return "warning"
+    end
+    "info"
+  end
 end
 
 module ActionView
