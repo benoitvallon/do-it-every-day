@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+  before_action :authenticate_user!, only: [:today]
+
   def home
     if current_user
       redirect_to today_path
