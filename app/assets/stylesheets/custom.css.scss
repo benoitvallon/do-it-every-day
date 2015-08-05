@@ -24,6 +24,9 @@ $gray-medium-light: #eaeaea;
 .navbar-transparent {
   background-color: transparent;
 }
+.navbar-visible .navbar-transparent {
+  background-color: $brand-primary;
+}
 
 .row-spacing {
   margin: 50px 0;
