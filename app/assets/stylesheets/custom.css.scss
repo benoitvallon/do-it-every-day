@@ -6,8 +6,6 @@
 
 /* mixins, variables, etc. */
 
-$gray-medium-light: #eaeaea;
-
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
@@ -40,13 +38,6 @@ textarea {
   resize: vertical;
 }
 
-.center {
-  text-align: center;
-  h1 {
-    margin-bottom: 10px;
-  }
-}
-
 /* typography */
 
 h1 {
@@ -56,11 +47,11 @@ h1 {
 .headline {
   position: absolute;
   z-index: 1;
-  margin-top: 200px;
+  margin-top: 220px;
 }
 .headline-text {
   color: white;
-  font-size: 45px;
+  font-size: 60px;
 }
 
 .headline-source {
@@ -92,7 +83,7 @@ a.navbar-brand .logo-text {
 .footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid $gray-medium-light;
+  border-top: 1px solid $gray-light;
   color: $gray-light;
   a {
     color: $gray;
@@ -194,7 +185,8 @@ a.navbar-brand .logo-text {
 
 html,
 body {
-    height: 100%;
+  height: 100%;
+  font-weight: 300;
 }
 
 .carousel,
