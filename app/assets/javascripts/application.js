@@ -17,3 +17,14 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require_tree .
+
+$(window).scroll(function () {
+  var heightLimit = 100,
+      height = $(window).scrollTop();
+
+  if(height > heightLimit) {
+    $('.navbar').removeClass('navbar-transparent');
+  } else {
+    $('.navbar').addClass('navbar-transparent');
+  }
+});
