@@ -8,22 +8,22 @@
 
       <div class="form-group">
         <%= f.label :name %>
-        <%= f.text_field :name, class: "form-control", autofocus: true %>
+        <%= f.text_field :name, autofocus: true, :placeholder => "John", class: "form-control", autofocus: true %>
       </div>
 
       <div class="form-group">
         <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, class: "form-control", required: true %>
+        <%= f.email_field :email, :placeholder => "john@doe.com", class: "form-control", required: true %>
       </div>
 
       <div class="form-group">
         <%= f.label :password %>
-        <%= f.password_field :password, class: "form-control", required: true %>
+        <%= f.password_field :password, :placeholder => "●●●●●●●●", class: "form-control", required: true %>
       </div>
 
       <div class="form-group">
         <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, class: "form-control", required: true %>
+        <%= f.password_field :password_confirmation, :placeholder => "●●●●●●●●", class: "form-control", required: true %>
       </div>
 
       <div class="form-group">
