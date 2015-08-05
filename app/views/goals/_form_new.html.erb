@@ -1,42 +1,32 @@
 <%= form_for(@goal) do |f| %>
-  <% if @goal.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@goal.errors.count, "error") %> prohibited this goal from being saved:</h2>
-
-      <ul>
-      <% @goal.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/error_messages', object: f.object %>
 
   <div class="form-group">
-    <%= f.label :title %><br>
+    <%= f.label :title %>
     <%= f.text_field :title, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :description %><br>
+    <%= f.label :description %>
     <%= f.text_area :description, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :start_date %><br>
+    <%= f.label :start_date %>
     <%= f.date_select :start_date, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label "How long do you what to do it?" %><br>
+    <%= f.label "How long do you what to do it?" %>
     <%= f.select :duration, [ ["1 week", 7], ["2 weeks", 14], ["1 month", 31], ["2 months", 62], ["100 days", 100] ], {prompt: "Select a duration"}, { class: "form-control"} %>
   </div>
 
   <div class="form-group">
-    <%= f.label "At what time will you do it?" %><br>
+    <%= f.label "At what time will you do it?" %>
     <%= f.time_select :moment_start, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label "At what time will you finish it?" %><br>
+    <%= f.label "At what time will you finish it?" %>
     <%= f.time_select :moment_end, class: "form-control" %>
   </div>
 
