@@ -28,11 +28,16 @@ class GoalsController < ApplicationController
     @goal = current_user.goals.build(goal_params)
 
     # iterate throught dates
-    start_date = Date.parse(goal_params[:start_date])
-    end_date = start_date + goal_params[:duration].to_i - 1
+    puts goal_params[:start_date]
+    puts goal_params[:duration]
 
-    start_date.upto(end_date) do |date|
-      @goal.activities.build({done: false, due_date: date})
+    if goal_params[:start_date] != "" && goal_params[:duration] != ""
+      start_date = Date.parse(goal_params[:start_date])
+      end_date = start_date + goal_params[:duration].to_i - 1
+
+      start_date.upto(end_date) do |date|
+        @goal.activities.build({done: false, due_date: date})
+      end
     end
 
     respond_to do |format|
