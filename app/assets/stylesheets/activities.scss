@@ -1,3 +1,35 @@
 // Place all the styles related to the Activities controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Calendar
+
+.calendar {
+  margin-top: 20px;
+  table-layout: fixed;
+}
+
+.calendar-row {
+  height: 100px;
+}
+
+.calendar-row-head {
+  height: 50px;
+}
+
+.table-bordered > thead > tr > th.cell-head {
+  vertical-align: middle;
+}
+
+.offset {
+  background-color: #f9f9f9;
+}
+
+.today-cell {
+  background-color: rgba(44, 62, 80, 0.2);
+}
+
+.cell-date {
+  margin-bottom: 5px;
+  text-align: right;
+}
