@@ -28,6 +28,10 @@
             <div class="notes">
               Notes: <%= activity.note %>
             </div>
+            <a class="twitter-share-button btn btn-primary pull-right"
+              href="https://twitter.com/intent/tweet?text=<%=u 'Yeaahh, I did it today!! On my way to my goal: ' + activity.goal[:title] + ' for ' + activity.goal[:duration].to_s + ' days via @do-it-every-day' %>" target="_blank">
+              Awesome you made it today, Tweet it !!
+            </a>
           <% else %>
             <div class="did-it text-right">
               <%= link_to 'Yeah! I did it!', edit_activity_path(activity), class: "btn btn-primary" %>
@@ -35,8 +39,6 @@
           <% end %>
         </div>
       </div>
-
-
     <% end %>
 
   </div>
