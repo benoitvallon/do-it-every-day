@@ -53,10 +53,17 @@ h1 {
   color: white;
   font-size: 60px;
 }
-
 .headline-source {
   color: white;
   font-size: 50%;
+}
+@media(max-width:600px) {
+  .headline {
+    margin-top: 220px;
+  }
+  .headline-text {
+    font-size: 40px;
+  }
 }
 
 /* header */
