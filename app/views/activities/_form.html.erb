@@ -1,15 +1,5 @@
 <%= form_for(@activity) do |f| %>
-  <% if @activity.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@activity.errors.count, "error") %> prohibited this activity from being saved:</h2>
-
-      <ul>
-      <% @activity.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/error_messages', object: f.object %>
 
   <p>Activty of <strong><%= @activity[:due_date].to_formatted_s(:long_ordinal) %></strong> of your goal <strong><%= @activity.goal[:title] %> for <%= @activity.goal[:duration] %> days</strong>.</p>
 
@@ -18,12 +8,12 @@
     <%= f.check_box :done %>
   </div>
   <div class="form-group">
-    <%= f.label :progress %><br>
-    <%= f.text_field :progress, class: "form-control" %>
+    <%= f.label "You can track your activity progress (ex: your running distance)" %><br>
+    <%= f.text_field :progress, :placeholder => "5", class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :note %><br>
-    <%= f.text_area :note, class: "form-control" %>
+    <%= f.label "Add any notes about this activity (optional)" %><br>
+    <%= f.text_area :note, :placeholder => "Sunny day, very hot, about 85° F", class: "form-control" %>
   </div>
 
   <div class="form-group">

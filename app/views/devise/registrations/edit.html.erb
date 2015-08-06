@@ -7,13 +7,13 @@
       <%= render 'shared/error_messages', object: f.object %>
 
       <div class="form-group">
-        <%= f.label :name %><br />
-        <%= f.text_field :name, class: "form-control", autofocus: true %>
+        <%= f.label :name %>
+        <%= f.text_field :name, :placeholder => "John",  autofocus: true, class: "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, class: "form-control" %>
+        <%= f.label :email %>
+        <%= f.email_field :email, :placeholder => "john@doe.com", class: "form-control" %>
       </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -21,18 +21,18 @@
       <% end %>
 
       <div class="form-group">
-        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-        <%= f.password_field :password, class: "form-control", autocomplete: "off" %>
+        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
+        <%= f.password_field :password, :placeholder => "●●●●●●●●", class: "form-control", autocomplete: "off" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "off" %>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, :placeholder => "●●●●●●●●", class: "form-control", autocomplete: "off" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-        <%= f.password_field :current_password, class: "form-control", autocomplete: "off" %>
+        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
+        <%= f.password_field :current_password, :placeholder => "●●●●●●●●", class: "form-control", autocomplete: "off" %>
       </div>
 
       <div class="form-group">
