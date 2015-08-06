@@ -26,10 +26,6 @@
   background-color: $brand-primary;
 }
 
-.row-spacing {
-  margin: 50px 0;
-}
-
 section {
   overflow: auto;
 }
@@ -223,6 +219,7 @@ body {
   padding: 50px 0;
 }
 .key-point {
+  margin: 50px 0;
   padding:0 30px;
   text-align: center;
   color: $gray-light;
