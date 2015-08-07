@@ -17,6 +17,12 @@
   background-color: transparent;
 }
 
+// Navabr button when collapsed
+
+.navbar-default .navbar-toggle {
+  background-color: $navbar-default-toggle-hover-bg;
+}
+
 // navbar and brand logo
 
 a.navbar-brand {
@@ -36,4 +42,22 @@ a.navbar-brand .logo-text {
   left: 12px;
   color: white;
   font-weight: 100;
+}
+
+@media(max-width:767px) {
+  a.navbar-brand {
+    padding-top: 26px;
+  }
+
+  a.navbar-brand .logo-text {
+    font-size: 22px;
+    top: 6px;
+  }
+}
+
+@media(max-width:320px) {
+  a.navbar-brand .logo-text {
+    font-size: 16px;
+    top: 4px;
+  }
 }
