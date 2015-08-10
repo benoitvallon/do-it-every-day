@@ -1,45 +1,59 @@
-<div class="row">
-  <div class="col-md-12">
+<% if @activities.length == 0 %>
 
-    <h1 class="text-center">What do I have to do today? Keep motivated !!</h1>
+  <div class="row text-center">
+    <div class="col-md-6 col-md-offset-3">
+      <h1>No activity to do today, what about creating a goal?</h1>
 
+      <p>Think of something at which you want to be better at. It can be like "do more sport", "read more", "cook my own meal every day“. The choice of this goal is up to you, the possibilities are endless.</p>
+
+      <p>Ready?</p>
+      <%= link_to 'Create a goal', new_goal_path, class: "btn btn-primary" %>
+    </div>
   </div>
-  <div class="col-md-6 col-md-offset-3">
 
-    <% @activities.each do |activity| %>
-      <div class="panel panel-<%= date_status activity %>">
-        <div class="panel-heading"><%= activity.goal[:title] %></div>
-        <div class="panel-body">
-          <div class="dates">
-            From <%= activity.goal[:moment_start].strftime("%I:%M%p") %> to <%= activity.goal[:moment_end].strftime("%I:%M%p") %>
+<% else %>
 
-          </div>
-          <div class="title">
-            <%= activity.goal[:description] %>
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-center">What do I have to do today? Keep motivated !!</h1>
+    </div>
+
+    <div class="col-md-6 col-md-offset-3 col-spacing-top">
+      <% @activities.each do |activity| %>
+        <div class="panel panel-<%= date_status activity %>">
+          <div class="panel-heading"><%= activity.goal[:title] %></div>
+          <div class="panel-body">
+            <div class="dates">
+              From <%= activity.goal[:moment_start].strftime("%I:%M%p") %> to <%= activity.goal[:moment_end].strftime("%I:%M%p") %>
+
+            </div>
+            <div class="title">
+              <%= activity.goal[:description] %>
+              <% if activity[:done] %>
+                <span class="label label-success">Done</span>
+                <%= link_to '(edit)', edit_activity_path(activity) %>
+              <% end %>
+            </div>
             <% if activity[:done] %>
-              <span class="label label-success">Done</span>
-              <%= link_to '(edit)', edit_activity_path(activity) %>
+              <div class="porgress">
+                Today I did: <%= activity.progress %>
+              </div>
+              <div class="notes">
+                Notes: <%= activity.note %>
+              </div>
+              <a class="twitter-share-button btn btn-primary pull-right"
+                href="https://twitter.com/intent/tweet?text=<%=u 'Yeaahh, I did it today!! On my way to my goal: ' + activity.goal[:title] + ' for ' + activity.goal[:duration].to_s + ' days via @do-it-every-day' %>" target="_blank">
+                You made it today, <%= icon('twitter') %> Tweet it!!
+              </a>
+            <% else %>
+              <div class="did-it text-right">
+                <%= link_to 'Yeah! I did it!', edit_activity_path(activity), class: "btn btn-primary" %>
+              </div>
             <% end %>
           </div>
-          <% if activity[:done] %>
-            <div class="porgress">
-              Today I did: <%= activity.progress %>
-            </div>
-            <div class="notes">
-              Notes: <%= activity.note %>
-            </div>
-            <a class="twitter-share-button btn btn-primary pull-right"
-              href="https://twitter.com/intent/tweet?text=<%=u 'Yeaahh, I did it today!! On my way to my goal: ' + activity.goal[:title] + ' for ' + activity.goal[:duration].to_s + ' days via @do-it-every-day' %>" target="_blank">
-              Awesome you made it today, Tweet it !!
-            </a>
-          <% else %>
-            <div class="did-it text-right">
-              <%= link_to 'Yeah! I did it!', edit_activity_path(activity), class: "btn btn-primary" %>
-            </div>
-          <% end %>
         </div>
-      </div>
-    <% end %>
-
+      <% end %>
+    </div>
   </div>
-</div>
+
+<% end %>

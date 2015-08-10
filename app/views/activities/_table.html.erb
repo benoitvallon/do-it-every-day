@@ -1,0 +1,58 @@
+<div class="table-responsive">
+  <table class="table table-bordered calendar">
+    <thead>
+      <tr class="calendar-row-head">
+        <th class="cell-head">Sunday</th>
+        <th class="cell-head">Monday</th>
+        <th class="cell-head">Tuesday</th>
+        <th class="cell-head">Wednesday</th>
+        <th class="cell-head">Thursday</th>
+        <th class="cell-head">Friday</th>
+        <th class="cell-head">Saturday</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="calendar-row">
+        <% @beginning_of_month = Date.today.beginning_of_month %>
+        <% @end_of_month = Date.today.end_of_month %>
+
+        <% (@beginning_of_month..@end_of_month).each do |d| %>
+          <% if d == @beginning_of_month %>
+            <% d.wday.times do %>
+              <td class='offset'></td>
+            <% end %>
+          <% end %>
+
+          <% if d.wday == 0 %>
+            </tr>
+            <tr class="calendar-row">
+          <% end %>
+          <td class="<%= "today-cell" if d == Date.today %>">
+            <div class="cell-date"><%= d.day %></div>
+            <% if activities = @activities_by_date[d.to_s] %>
+              <% activities.each do |activity| %>
+                <div class="cell-activities">
+                  <%= activity.goal[:title] %>
+                  <% if activity[:done] %>
+                    <span class="label label-success">Done</span>
+                    <%= link_to '(edit)', edit_activity_path(activity) %>
+                  <% elsif !activity[:done] && activity[:due_date] < Date.today %>
+                    <span class="label label-danger">Not done</span>
+                    <%= link_to '(edit)', edit_activity_path(activity) %>
+
+                  <% end %>
+                </div>
+              <% end %>
+            <% end %>
+          </td>
+
+          <% if d == @end_of_month %>
+            <% (6 - d.wday).times do %>
+              <td class='offset'></td>
+            <% end %>
+          <% end %>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+</div>

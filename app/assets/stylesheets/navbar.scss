@@ -1,11 +1,10 @@
 // Navbar transparency mecanism
-
 .navbar {
   transition: background .3s;
 }
 
 .navbar-visible {
-  padding-top: 150px;
+  padding-top: 120px;
 
   // if the navbar is visible than the transparency must be overwritten
   .navbar-transparent {

@@ -1,85 +1,28 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <% if @activities.length == 0 %>
-      <div class="row text-center">
-        <h1>Your monthly follow up looks very empty, what about creating a goal?</h1>
+<% if @activities.length == 0 %>
 
-        <p>Think of something at which you want to be better at. It can be like "do more sport", "read more", "cook my own meal every day“. The choice of this goal is up to you, the possibilities are endless.</p>
+  <div class="row text-center">
+    <div class="col-md-6 col-md-offset-3">
+      <h1>Your monthly follow up looks very empty, what about creating a goal?</h1>
 
-        <p>Ready?</p>
+      <p>Think of something at which you want to be better at. It can be like "do more sport", "read more", "cook my own meal every day“. The choice of this goal is up to you, the possibilities are endless.</p>
 
-        <%= link_to 'Create a goal', new_goal_path, class: "btn btn-primary" %>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-
-<div class="row">
-  <div class="col-md-12">
-
-    <% if @activities.length != 0 %>
-      <h1 class="text-center">Monthly follow-up</h1>
-    <% end %>
-
-    <div class="table-responsive">
-      <table class="table table-bordered calendar">
-        <thead>
-          <tr class="calendar-row-head">
-            <th class="cell-head">Sunday</th>
-            <th class="cell-head">Monday</th>
-            <th class="cell-head">Tuesday</th>
-            <th class="cell-head">Wednesday</th>
-            <th class="cell-head">Thursday</th>
-            <th class="cell-head">Friday</th>
-            <th class="cell-head">Saturday</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="calendar-row">
-            <% @beginning_of_month = Date.today.beginning_of_month %>
-            <% @end_of_month = Date.today.end_of_month %>
-
-            <% (@beginning_of_month..@end_of_month).each do |d| %>
-              <% if d == @beginning_of_month %>
-                <% d.wday.times do %>
-                  <td class='offset'></td>
-                <% end %>
-              <% end %>
-
-              <% if d.wday == 0 %>
-                </tr>
-                <tr class="calendar-row">
-              <% end %>
-              <td class="<%= "today-cell" if d == Date.today %>">
-                <div class="cell-date"><%= d.day %></div>
-                <% if activities = @activities_by_date[d.to_s] %>
-                  <% activities.each do |activity| %>
-                    <div class="cell-activities">
-                      <%= activity.goal[:title] %>
-                      <% if activity[:done] %>
-                        <span class="label label-success">Done</span>
-                        <%= link_to '(edit)', edit_activity_path(activity) %>
-                      <% elsif !activity[:done] && activity[:due_date] < Date.today %>
-                        <span class="label label-danger">Not done</span>
-                        <%= link_to '(edit)', edit_activity_path(activity) %>
-
-                      <% end %>
-                    </div>
-                  <% end %>
-                <% end %>
-              </td>
-
-              <% if d == @end_of_month %>
-                <% (6 - d.wday).times do %>
-                  <td class='offset'></td>
-                <% end %>
-              <% end %>
-            <% end %>
-          </tr>
-        </tbody>
-      </table>
+      <p>Ready?</p>
+      <%= link_to 'Create a goal', new_goal_path, class: "btn btn-primary" %>
     </div>
 
+    <div class="col-md-12 col-spacing-top">
+      <%= render 'table' %>
+    </div>
   </div>
-</div>
+
+<% else %>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-center">Monthly follow-up</h1>
+
+      <%= render 'table' %>
+    </div>
+  </div>
+
+<% end %>
