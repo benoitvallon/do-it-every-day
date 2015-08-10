@@ -20,4 +20,24 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    errors:
+      models:
+        activity:
+          attributes:
+            progress:
+              not_a_number: "You can only track a number for your progress"
+        goal:
+          attributes:
+            title:
+              blank: "You must define a goal name"
+            description:
+              blank: "You must define a motivation message"
+            start_date:
+              blank: "You must choose a start date"
+            duration:
+              blank: "You must select a duration"
+            moment_start:
+              blank: "You must define a starting time for your activities"
+            moment_end:
+              blank: "You must define a ending time for your activities"

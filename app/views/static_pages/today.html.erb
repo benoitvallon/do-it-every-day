@@ -35,12 +35,17 @@
               <% end %>
             </div>
             <% if activity[:done] %>
-              <div class="porgress">
-                Today I did: <%= activity.progress %>
-              </div>
-              <div class="notes">
-                Notes: <%= activity.note %>
-              </div>
+              <% if activity.progress %>
+                <div class="porgress">
+                  Today I did: <%= activity.progress %>
+                </div>
+              <% end %>
+              <% if activity.note.length > 0 %>
+                <div class="notes">
+                  Notes: <%= activity.note %>
+                </div>
+              <% end %>
+
               <a class="twitter-share-button btn btn-primary pull-right"
                 href="https://twitter.com/intent/tweet?text=<%=u 'Yeaahh, I did it today!! On my way to my goal: ' + activity.goal[:title] + ' for ' + activity.goal[:duration].to_s + ' days via @do-it-every-day' %>" target="_blank">
                 You made it today, <%= icon('twitter') %> Tweet it!!
