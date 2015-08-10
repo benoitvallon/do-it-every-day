@@ -10,6 +10,9 @@ class StaticPagesController < ApplicationController
   def about
   end
 
+  def why_website
+  end
+
   def today
     goals = current_user.goals.all
 

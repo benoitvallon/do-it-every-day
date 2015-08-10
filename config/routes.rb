@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'about'        => 'static_pages#about'
   get 'activities'   => 'static_pages#activities'
   get 'today'        => 'static_pages#today'
+  get 'why_website'  => 'static_pages#why_website'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
