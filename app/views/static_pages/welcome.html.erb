@@ -1,0 +1,13 @@
+<div class="row text-center">
+  <div class="col-md-8 col-md-offset-2">
+    <h1>Welcome <%= @user.name %>!</h1>
+
+    <p>We are going to set up your first goal together.</p>
+
+    <p>First, think of something at which you want to be better at. It can be like "do more sport", "read more", "cook my own meal every day“. The choice of this goal is up to you, the possibilities are endless.</p>
+
+    <p>Ready?</p>
+
+    <%= link_to 'Create my first goal', new_goal_path, class: "btn btn-primary" %>
+  </div>
+</div>

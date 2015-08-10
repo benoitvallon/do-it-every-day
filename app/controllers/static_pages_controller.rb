@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  before_action :authenticate_user!, only: [:today]
+  before_action :authenticate_user!, only: [:today, :welcome]
 
   def home
     if current_user
@@ -31,5 +31,9 @@ class StaticPagesController < ApplicationController
   end
 
   def activities
+  end
+
+  def welcome
+    @user = current_user
   end
 end

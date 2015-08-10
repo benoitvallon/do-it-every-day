@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   resources :activities
   resources :goals
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
   root                  'static_pages#home'
   get 'about'        => 'static_pages#about'
   get 'activities'   => 'static_pages#activities'
   get 'today'        => 'static_pages#today'
+  get 'welcome'        => 'static_pages#welcome'
   get 'why_website'  => 'static_pages#why_website'
 
   # The priority is based upon order of creation: first created -> highest priority.
