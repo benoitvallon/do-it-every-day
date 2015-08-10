@@ -48,7 +48,12 @@ class ActivitiesController < ApplicationController
   def update
     respond_to do |format|
       if @activity.update(activity_params)
-        format.html { redirect_to activities_path, notice: 'Activity was successfully updated.' }
+        if params[:source] == 'today' || params[:source] == 'activities'
+          redirectPath = '/' + params[:source]
+        else
+          redirectPath = '/today'
+        end
+        format.html { redirect_to redirectPath, notice: 'Activity was successfully updated.' }
         format.json { render :show, status: :ok, location: @activity }
       else
         format.html { render :edit }

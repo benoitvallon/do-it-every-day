@@ -35,10 +35,10 @@
                   <%= activity.goal[:title] %>
                   <% if activity[:done] %>
                     <span class="label label-success">Done</span>
-                    <%= link_to '(edit)', edit_activity_path(activity) %>
+                    <%= link_to '(edit)', edit_activity_path(activity, :source => 'activities') %>
                   <% elsif !activity[:done] && activity[:due_date] < Date.today %>
                     <span class="label label-danger">Not done</span>
-                    <%= link_to '(edit)', edit_activity_path(activity) %>
+                    <%= link_to '(edit)', edit_activity_path(activity, :source => 'activities') %>
 
                   <% end %>
                 </div>

@@ -7,6 +7,9 @@
     <%= f.label :done %><br>
     <%= f.check_box :done %>
   </div>
+
+  <%= hidden_field_tag :source, params[:source] %>
+
   <div class="form-group">
     <%= f.label "You can track your activity progress (ex: your running distance)" %><br>
     <%= f.text_field :progress, :placeholder => "5", class: "form-control" %>

@@ -31,7 +31,7 @@
               <%= activity.goal[:description] %>
               <% if activity[:done] %>
                 <span class="label label-success">Done</span>
-                <%= link_to '(edit)', edit_activity_path(activity) %>
+                <%= link_to '(edit)', edit_activity_path(activity, :source => 'today') %>
               <% end %>
             </div>
             <% if activity[:done] %>
@@ -47,7 +47,7 @@
               </a>
             <% else %>
               <div class="did-it text-right">
-                <%= link_to 'Yeah! I did it!', edit_activity_path(activity), class: "btn btn-primary" %>
+                <%= link_to 'Yeah! I did it!', edit_activity_path(activity, :source => 'today'), class: "btn btn-primary" %>
               </div>
             <% end %>
           </div>
