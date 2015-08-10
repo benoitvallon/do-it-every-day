@@ -56,7 +56,7 @@
 // Key points
 
 .key-point {
-  margin: 70px 0;
+  margin: 0 0 50px 0;
   padding: 0 30px;
   text-align: center;
 
@@ -74,5 +74,12 @@
     color: $gray-light;
     font-size: 20px;
     font-weight: 200;
+  }
+}
+
+.homepage {
+  &.row {
+    margin-top: 70px;
+    margin-bottom: 70px;
   }
 }
