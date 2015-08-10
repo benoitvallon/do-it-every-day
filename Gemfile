@@ -27,6 +27,7 @@ gem 'bcrypt'
 gem 'devise', '~> 3.5.1'
 gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'
+gem 'font-awesome-sass'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
