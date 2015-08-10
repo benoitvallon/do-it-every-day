@@ -41,3 +41,22 @@ en:
               blank: "You must define a starting time for your activities"
             moment_end:
               blank: "You must define a ending time for your activities"
+        user:
+          attributes:
+            name:
+              blank: "You must enter your name"
+              too_short: "Your name is too long (maximum %{count} characters)"
+            email:
+              blank: "You must enter your email"
+              taken: "Email already used, please use a different one"
+              invalid: "You must enter a valid email"
+            password:
+              blank: "You must choose a password"
+              confirmation: "Passwords do not match"
+              too_short: "Your password is too short (minimum %{count} characters)"
+            password_confirmation:
+              blank: "You must confim your password"
+              confirmation: "You typed two different passwords"
+              too_short: "Your password is too short (minimum %{count} characters)"
+            current_password:
+              blank: "You must enter your current password to confirm your changes"
