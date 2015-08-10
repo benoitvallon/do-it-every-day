@@ -1,7 +1,26 @@
 <div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <% if @activities.length == 0 %>
+      <div class="row text-center">
+        <h1>Your monthly follow up looks very empty, what about creating a goal?</h1>
+
+        <p>Think of something at which you want to be better at. It can be like "do more sport", "read more", "cook my own meal every day“. The choice of this goal is up to you, the possibilities are endless.</p>
+
+        <p>Ready?</p>
+
+        <%= link_to 'Create a goal', new_goal_path, class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="row">
   <div class="col-md-12">
 
-    <h1 class="text-center">Monthly follow-up</h1>
+    <% if @activities.length != 0 %>
+      <h1 class="text-center">Monthly follow-up</h1>
+    <% end %>
 
     <div class="table-responsive">
       <table class="table table-bordered calendar">
