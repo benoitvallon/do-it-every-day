@@ -20,6 +20,11 @@
   background-size: cover;
   -o-background-size: cover;
 }
+.carousel-caption {
+  left: 5%;
+  right: 5%;
+  bottom: 15%;
+}
 
 // headline
 
@@ -36,7 +41,7 @@
 
 .headline-source {
   color: white;
-  font-size: 50%;
+  font-size: 30px;
 }
 
 @media(max-width:600px) {

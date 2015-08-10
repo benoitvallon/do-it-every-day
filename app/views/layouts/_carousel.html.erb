@@ -1,38 +1,42 @@
 <!-- Full Page Image Background Carousel Header -->
-<header class="carousel slide" data-ride="carousel" data-interval="2000">
+<header id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="4000">
   <!-- Indicators -->
-  <!-- <ol class="carousel-indicators">
+  <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
     <li data-target="#myCarousel" data-slide-to="1"></li>
     <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol> -->
-  <div class="headline">
+  </ol>
+  <!-- <div class="headline">
     <div class="col-md-8 col-md-offset-2">
       <h1 class="text-center headline-text">We are what we repeatedly do. Excellence, then, is not an act, but a habit.
         <small class="headline-source"> Aristotle</small>
       </h1>
     </div>
-  </div>
+  </div> -->
 
   <!-- Wrapper for Slides -->
   <div class="carousel-inner">
     <div class="item active">
       <div class="fill" style="background-image:url('<%= image_path("running-1900x1080-60.jpg") %>');"></div>
-      <!-- <div class="carousel-caption">
-          <h2>Caption 1</h2>
-      </div> -->
+      <div class="carousel-caption">
+        <h1 class="text-center headline-text">We are what we repeatedly do. Excellence, then, is not an act, but a habit.
+        </h1>
+        <p class="headline-source"> Aristotle</p>
+      </div>
     </div>
     <div class="item">
       <div class="fill" style="background-image:url('<%= image_path("reading-1900x1080-60.jpg") %>');"></div>
-      <!-- <div class="carousel-caption">
-          <h2>Caption 2</h2>
-      </div> -->
+      <div class="carousel-caption">
+        <h1 class="text-center headline-text">Practice makes perfect.</h1>
+        <p class="headline-source"> Proverb</p>
+      </div>
     </div>
     <div class="item">
       <div class="fill" style="background-image:url('<%= image_path("cooking-1900x1080-60.jpg") %>');"></div>
-      <!-- <div class="carousel-caption">
-          <h2>Caption 3</h2>
-      </div> -->
+      <div class="carousel-caption">
+        <h1 class="text-center headline-text">The way to get started is to quit talking and begin doing.</h1>
+        <p class="headline-source"> Walt Disney</p>
+      </div>
     </div>
   </div>
 
