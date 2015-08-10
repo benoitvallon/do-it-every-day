@@ -56,7 +56,6 @@
 // Key points
 
 .key-point {
-  color: $gray-light;
   margin: 70px 0;
   padding: 0 30px;
   text-align: center;
@@ -68,12 +67,11 @@
   }
 
   .title {
-    color: $brand-primary;
-    font-weight: 100;
     margin-bottom: 30px;
   }
 
   .description {
+    color: $gray-light;
     font-size: 20px;
     font-weight: 200;
   }
