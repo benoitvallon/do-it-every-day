@@ -18,6 +18,19 @@
 //= require bootstrap-datetimepicker
 //= require_tree .
 
+function preload(arrayOfImages) {
+  $(arrayOfImages).each(function(){
+    $('<img/>')[0].src = this;
+  });
+}
+
+// Usage:
+preload([
+  '<%= image_path("running-1900x1080-10.jpg") %>',
+  '<%= image_path("cooking-1900x1080-60.jpg") %>',
+  '<%= image_path("reading-1900x1080-60.jpg") %>'
+]);
+
 $(window).scroll(function () {
   var heightLimit = 100,
       height = $(window).scrollTop();
