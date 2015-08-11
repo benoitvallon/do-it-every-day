@@ -1,9 +1,10 @@
 // Footer
 
 .footer {
-  padding-top: 5px;
   border-top: 1px solid $gray-lighter;
   color: $gray-light;
+  margin-bottom: 40px;
+  padding-top: 5px;
 
   a {
     color: $gray;
@@ -13,12 +14,12 @@
     }
   }
 
-  ul {
-    float: right;
+  .list {
     list-style: none;
+    text-align: right;
 
-    li {
-      float: left;
+    .list-item {
+      display: inline-block;
       margin-left: 15px;
     }
   }
