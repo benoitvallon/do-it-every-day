@@ -4,7 +4,13 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.json
   def index
-    @activities = Activity.all
+    @goals = current_user.goals.all
+
+    @activities = []
+    @goals.each do |goal|
+      activities = goal.activities.all
+      @activities = @activities + activities
+    end
 
     @activities_by_date = {}
     @activities.each do |activity|
